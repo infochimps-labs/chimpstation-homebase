@@ -1,0 +1,207 @@
+{
+  "id": "workstation",
+  "dmgs-away": {
+    "Dropbox": {
+      "volumes_dir": "Dropbox Installer",
+      "url": "http://www.dropbox.com/download?plat=mac",
+      "checksum": "b4ea620ca22b0517b75753283ceb82326aca8bc3c86212fbf725de6446a96a13"
+    },
+    "Google Chrome": {
+      "dmg_name": "googlechrome",
+      "url": "https://dl-ssl.google.com/chrome/mac/stable/GGRM/googlechrome.dmg",
+      "checksum": "7daa2dc5c46d9bfb14f1d7ff4b33884325e5e63e694810adc58f14795165c91a"
+    },
+    "Skype": {
+      "url": "http://www.skype.com/go/getskype-macosx.dmg",
+      "checksum": "f13c778cef334f36f10c5df9675838bb751477d867b755a940718e4969a33a48"
+    },
+    "Emacs": {
+      "url": "http://emacsformacosx.com/emacs-builds/Emacs-pretest-24.0.93-universal-10.6.8.dmg",
+      "checksum": "d51e85bc5c7bfa7d2cf28c249c17fa4733d53"
+    }
+  },
+  "packages": {
+
+    "readline":        "",
+    "binutils":        "",
+    "coreutils":       "",
+    "findutils":       "",
+    "patchutils":      "",
+    "proctools":       "",
+
+    "zsh":             "",
+    "bash":            "",
+    "bash-completion": "",
+
+    "git":             "",
+    "git-subtree":     "",
+    "git-utils":       "",
+    "subversion":      "",
+    "sqlite":          "",
+
+    "bcrypt":          "",
+    "gettext":         "",
+    "libevent":        "",
+    "libexif":         "",
+    "libffi":          "",
+    "libgcrypt":       "",
+    "libgit2":         "",
+    "libgpg-error":    "",
+    "libgsasl":        "",
+    "libident":        "",
+    "libidn":          "",
+    "librsync":        "",
+    "libssh2":         "",
+    "libxml2":         "",
+    "libxslt":         "",
+    "libyaml":         "",
+    "libzip":          "",
+    "oniguruma":       "",
+    "openssl":         "",
+    "pcre":            "",
+    "ragel":           "",
+    "snappy":          "",
+    "neon":            "",
+
+    "gnu-indent":      "",
+    "gnu-sed":         "",
+    "gnu-tar":         "",
+    "gnu-time":        "",
+
+    "ack":             "",
+    "colordiff":       "",
+    "csshx":           "",
+    "ctags":           "",
+    "curl":            "",
+    "elinks":          "",
+    "growlnotify":     "",
+    "lesspipe":        "",
+    "pigz":            "",
+    "tmux":            "",
+    "tree":            "",
+    "wget":            "",
+
+    "base64":          "",
+    "dos2unix":        "",
+    "lzlib":           "",
+    "lzo":             "",
+    "md5deep":         "",
+
+    "emacs":           "",
+    "macvim":          "",
+
+    "coffee-script":   "",
+    "gradle":          "",
+    "lua":             "",
+    "luarocks":        "",
+    "node":            "",
+    "phantomjs":       "",
+    "python3":         "",
+    "r":               "",
+    "v8":              "",
+
+    "aws-iam-tools":   "",
+    "ec2-ami-tools":   "",
+    "ec2-api-tools":   "",
+    "elb-tools":       "",
+    "s3cmd":           "",
+    "s3sync":          "",
+
+    "htop":            "",
+    "httperf":         "",
+    "ifstat":          "",
+    "imlib2":          "",
+    "ncftp":           "",
+    "netcat":          "",
+    "nmap":            "",
+    "tcpstat":         "",
+    "tcptrace":        ""
+    "pstree":          "",
+    "ssh-copy-id":     "",
+    "watch":           "",
+    "imagemagick":     "",
+
+    "cassandra":       "",
+    "couchdb":         "",
+    "elasticsearch":   "",
+    "flume":           "",
+    "hadoop":          "",
+    "hbase":           "",
+    "hive":            "",
+    "jenkins":         "",
+    "mongodb":         "",
+    "pig":             "",
+    "postgresql":      "",
+    "rabbitmq":        "",
+    "redis":           "",
+    "redis-tools":     "",
+    "syslog-ng":       "",
+
+    "nginx":           "",
+    "pow":             "",
+    "varnish":         "",
+    "zeromq":          ""
+    
+  },
+  "gems": {
+    
+    "bundler":          "",
+    "jeweler":          "",
+    "thor":             "",
+    "yard":             "",
+
+    "extlib":           "",
+    "json":             "",
+    "yajl-ruby":        "",
+
+    "ohai":             "",
+    "chef":             "0.10.8",
+    "vagrant":          "",
+    "veewee":           ""
+    "fog":              "",
+    "right_aws":        "",
+    "highline":         "",
+    "formatador":       "",
+    "cluster_chef":     "",
+
+    "rails":            "",
+    "addressable":      "",
+    
+    "awesome_print":    "",
+    "pry":              "",
+    "wirble":           "",
+    "hirb":             "",
+    "gist":             "",
+    "cheat":            "",
+    "qwandry":          "",
+
+    "guard":            "",
+    "guard-rspec":      "",
+    "guard-spork":      "",
+    "guard-livereload": "",
+    "guard-bundler":    "",
+    "guard-pow":        "",
+    "guard-rake":       "",
+    "guard-process":    "",
+    "guard-chef":       "",
+
+    "rest-client":      "",
+
+    "nokogiri":         "",
+    "erubis":           "",
+    "i18n":             "",
+    "tilt":             "",
+    "bluecloth":        "",
+    "haml":             "",
+    "compass":          "",
+
+    "configliere":      "",
+    "gorillib":         "",
+    "wukong":           "",
+    
+    "rspec":            "",
+    "cucumber":         "",
+    "rcov":             ""
+
+  }
+}
