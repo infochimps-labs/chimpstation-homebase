@@ -115,7 +115,7 @@
     "netcat":          "",
     "nmap":            "",
     "tcpstat":         "",
-    "tcptrace":        ""
+    "tcptrace":        "",
     "pstree":          "",
     "ssh-copy-id":     "",
     "watch":           "",
@@ -150,9 +150,12 @@
     "thor":             "",
     "yard":             "",
 
+    "rails":            "",
     "extlib":           "",
     "json":             "",
+    "crack":            "",
     "yajl-ruby":        "",
+    "addressable":      "",
 
     "ohai":             "",
     "chef":             "0.10.8",
@@ -163,9 +166,6 @@
     "highline":         "",
     "formatador":       "",
     "cluster_chef":     "",
-
-    "rails":            "",
-    "addressable":      "",
     
     "awesome_print":    "",
     "pry":              "",
@@ -174,7 +174,7 @@
     "gist":             "",
     "cheat":            "",
     "qwandry":          "",
-
+    
     "guard":            "",
     "guard-rspec":      "",
     "guard-spork":      "",
@@ -185,7 +185,6 @@
     "guard-process":    "",
     "guard-chef":       "",
 
-    "rest-client":      "",
 
     "nokogiri":         "",
     "erubis":           "",
@@ -194,6 +193,7 @@
     "bluecloth":        "",
     "haml":             "",
     "compass":          "",
+    "rest-client":      "",
 
     "configliere":      "",
     "gorillib":         "",
