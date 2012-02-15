@@ -56,3 +56,5 @@ metadata.json
 *.box
 *.iso
 credentials
+
+Gemfile.lock
