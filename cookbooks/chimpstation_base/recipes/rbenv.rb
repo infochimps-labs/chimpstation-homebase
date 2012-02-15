@@ -4,7 +4,6 @@ include_recipe "chimpstation_base::git"
 ::RBENV_HOME = "#{WS_HOME}/.rbenv"
 ::RBENV_COMMAND = "/usr/local/bin/rbenv"
 
-
 brew_install("rbenv")
 brew_install("ruby-build")
 
