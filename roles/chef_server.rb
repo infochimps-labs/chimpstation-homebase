@@ -1,0 +1,1 @@
+../vendor/infochimps-labs/roles/chef_server.rb

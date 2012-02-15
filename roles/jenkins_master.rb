@@ -1,0 +1,1 @@
+../vendor/infochimps-labs/roles/jenkins_master.rb
