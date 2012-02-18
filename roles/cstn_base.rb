@@ -56,7 +56,7 @@ default_attributes({
         :osx_testing     => %w[ rspec cucumber
                           guard guard-rspec guard-spork guard-livereload guard-bundler guard-pow guard-rake guard-process guard-chef ],
         :osx_text        => %w[ nokogiri erubis i18n tilt bluecloth haml compass ],
-        :osx_cloud       => %w[ chef ohai cluster_chef fog right_aws vagrant veewee ],
+        :osx_cloud       => %w[ chef ohai ironfan fog right_aws vagrant veewee ],
       }
     }
   })
