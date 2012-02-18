@@ -1,1 +1,1 @@
-../vendor/infochimps-labs/roles/jenkins_master.rb
+../vendor/ironfan-pantry/roles/jenkins_master.rb

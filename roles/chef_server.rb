@@ -1,1 +1,1 @@
-../vendor/infochimps-labs/roles/chef_server.rb
+../vendor/ironfan-pantry/roles/chef_server.rb
