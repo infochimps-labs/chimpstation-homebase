@@ -6,15 +6,21 @@ run_list(*%w[
   recipe[package_set]
   ])
 
-default_attributes({
+override_attributes({
     # Package sets to install. Add or remove as convenience & prudence dictate.
     :package_set => {
-      :install     => %w[ !merge:
+      :install     => %w[
         osx_base osx_dev osx_libs osx_sysadmin osx_editors
-        osx_chef_server osx_web_dev osx_backend osx_testing
+        osx_chef_server osx_web_dev osx_testing
         osx_langs osx_text osx_cloud ],
-      :pkgs        => {
+      }
 
+  })
+
+default_attributes({
+    :package_set => {
+      :install     => %w[ !merge: ], # blows away the (debian-centric) default
+      :pkgs        => {
         :osx_base        => [
           "readline", "binutils", "coreutils", "findutils", "patchutils", "proctools",
           "zsh", "bash", "bash-completion", ],
@@ -41,7 +47,7 @@ default_attributes({
         :osx_backend     => [ "elasticsearch", "flume", "hadoop", "hbase", "hive", "pig", "redis", "redis-tools", "mongodb", "nginx", "pow", ],
         :osx_backend_2   => [ "cassandra", "couchdb", "jenkins", "postgresql", "rabbitmq", "syslog-ng", "varnish", "zeromq" ],
 
-        :osx_langs       => [ "coffee-script", "gradle", "lua", "luarocks", "node", "phantomjs", "python3", "r", "v8", ],
+        :osx_langs       => [ "coffee-script", "gradle", "lua", "luarocks", "node", "phantomjs", "r", "v8", ],
         :osx_cloud       => [ "aws-iam-tools", "ec2-ami-tools", "ec2-api-tools", "elb-tools", "s3cmd", "s3sync", ],
 
       },

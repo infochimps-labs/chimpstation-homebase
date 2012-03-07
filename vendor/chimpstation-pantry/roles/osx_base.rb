@@ -6,4 +6,7 @@ run_list(*%w[
   ])
 
 default_attributes({
+    :package_set => {
+      :install     => %w[ !merge: ], # blows away the (debian-centric) default
+    },
   })
