@@ -33,6 +33,18 @@ We'll use the following conventions:
   - copy your chef server user key to `knife/credentials/${chef_user}.pem`
   - fix the permissions on the key files: `chmod 600 knife/credentials/*.pem`
   
+
+* initialize workstation
+  - `gem install chef ironfan`
+  - in the `clusters/workstation.rb` file, add a facet named for yourself (`${chef_user}`)
+  - `knife cluster sync workstation-${chef_user} --sync-all --no-cloud` will create the chef node for you, and leave the client key in `credentials/client_keys/client-workstation-${chef_user}-0.pem`.
+  - run
+     
+        sudo mkdir /etc/chef
+        sudo chown $USER /etc/chef
+        cp credentials/client_keys/client-workstation-${chef_user}-0.pem /etc/chef
+        cp config/client.rb /etc/chef
+
 # What it does
 
 

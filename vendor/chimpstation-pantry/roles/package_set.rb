@@ -26,9 +26,9 @@ default_attributes({
           "zsh", "bash", "bash-completion", ],
 
         :osx_dev         => [
-          "git", "git-subtree", "git-utils", "subversion", "ctags", "gnu-indent", "gnu-sed",
+          "git", "git-subtree", "git-utils", "ctags", "gnu-indent", "gnu-sed",
           "gnu-tar", "gnu-time", "sqlite", "ack", "colordiff", "csshx", "ctags", "curl",
-          "elinks", "growlnotify", "lesspipe", "pigz", "tmux", "tree", "wget", ],
+          "elinks", "growlnotify", "lesspipe", "tmux", "tree", "wget", ],
 
         :osx_libs        => [
           "bcrypt", "gettext", "libevent", "libexif", "libffi", "libgcrypt", "libgit2",
@@ -38,26 +38,37 @@ default_attributes({
 
         :osx_sysadmin    => [
           "htop", "httperf", "ifstat", "imlib2", "ncftp", "netcat", "nmap", "tcpstat",
-          "tcptrace", "pstree", "ssh-copy-id", "watch", "imagemagick", ],
+          "tcptrace", "pstree", "ssh-copy-id", "watch", "subversion", ],
 
         :osx_editors     => [ "emacs", "macvim", ],
         :osx_chef_server => [ "rabbitmq", "couchdb", ],
-        :osx_web_dev     => [ "nginx", "pow", "coffee-script", "node", ],
+        :osx_web_dev     => [ "nginx", "pow", "coffee-script", "node", "imagemagick", ],
+        :osx_data_miner  => [ "nginx", "pow", "coffee-script", "node", "imagemagick", ],
+
+        :osx_langs       => [ "coffee-script", "lua", "luarocks", "node", "phantomjs", "r", "v8", ],
+        :osx_cloud       => [ "aws-iam-tools", "ec2-ami-tools", "ec2-api-tools", "elb-tools", "s3cmd", "s3sync", ],
+
+        # These are not installed by default
 
         :osx_backend     => [ "elasticsearch", "flume", "hadoop", "hbase", "hive", "pig", "redis", "redis-tools", "mongodb", "nginx", "pow", ],
         :osx_backend_2   => [ "cassandra", "couchdb", "jenkins", "postgresql", "rabbitmq", "syslog-ng", "varnish", "zeromq" ],
 
-        :osx_langs       => [ "coffee-script", "gradle", "lua", "luarocks", "node", "phantomjs", "r", "v8", ],
-        :osx_cloud       => [ "aws-iam-tools", "ec2-ami-tools", "ec2-api-tools", "elb-tools", "s3cmd", "s3sync", ],
-
       },
       :gems          => {
-
-        :osx_base        => %w[ bundler jeweler thor yard ],
+        :osx_base        => %w[ bundler jeweler ],
         :osx_dev         => %w[
-          rails extlib json crack yajl-ruby addressable rest-client
-          awesome_print pry wirble hirb cheat guard watchr highline formatador gist qwandry
-          configliere gorillib wukong ],
+
+          extlib json yajl-ruby awesome_print addressable cheat rest-client
+          yard jeweler rspec watchr pry wirble hirb
+          configliere gorillib wukong swineherd hackboxen
+
+          rails extlib json crack yajl-ruby addressable rest-client thor yard
+          awesome_print pry wirble hirb cheat guard watchr
+          configliere gorillib wukong
+
+
+          log4r RedCloth guard htmlentities log4r log_buddy redcarpet simplecov multi_json
+        ],
         :osx_sysadmin    => %w[],
         :osx_chef_server => %w[ chef chef-server-api chef-server-webui chef-solr chef-expander ],
         :osx_web_dev     => %w[ sinatra gollum jekyll powder ],
