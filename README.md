@@ -1,22 +1,32 @@
 # Chimpstation-homebase: infochimps developers' desktop environment
 
-This repo uses chef and ironfan to provision a developer workstation on OSX.
+This repo uses chef and ironfan to provision a developer workstation on OSX. It unifies:
+
+* Cookbooks, roles, and environments
+* Cluster descriptions
+* Your Chef and cloud credentials
+* Pantries (collections of cookbooks, roles and so forth)
 
 ## Index
 
-Chimpstation uses ironfan, an expressive toolset for constructing scalable, resilient architectures.
+Chimpstation uses ironfan, an expressive toolset for constructing scalable, resilient architectures. The full Ironfan toolset:
 
-* [ironfan-homebase](https://github.com/infochimps-labs/ironfan-homebase): centralizes the cookbooks, roles and clusters. A solid foundation for any chef user.
-* [ironfan gem](https://github.com/infochimps-labs/ironfan): core ironfan models, and knife plugins to orchestrate machines and coordinate truth among you homebase, cloud and chef server.
-* [ironfan-pantry](https://github.com/infochimps-labs/ironfan-pantry): Our collection of industrial-strength, cloud-ready recipes for Hadoop, HBase, Cassandra, Elasticsearch, Zabbix and more.
-* [silverware cookbook](https://github.com/infochimps-labs/ironfan-homebase/tree/master/cookbooks/silverware): coordinate discovery of services ("list all the machines for `awesome_webapp`, that I might load balance them") and aspects ("list all components that write logs, that I might logrotate them, or that I might monitor the free space on their volumes".
-* [ironfan-ci](https://github.com/infochimps-labs/ironfan-ci): Continuous integration testing of not just your cookbooks but your *architecture*.
+### Tools:
 
-* [ironfan wiki](https://github.com/infochimps-labs/ironfan/wiki): high-level documentation and install instructions
-* [ironfan issues](https://github.com/infochimps-labs/ironfan/issues): bugs, questions and feature requests for *any* part of the ironfan toolset.
-* [ironfan gem docs](http://rdoc.info/gems/ironfan): rdoc docs for ironfan
+* [ironfan-homebase](https://github.com/infochimps-labs/ironfan-homebase): Centralizes the cookbooks, roles and clusters. A solid foundation for any Chef user.
+* [ironfan gem](https://github.com/infochimps-labs/ironfan): The core Ironfan models, and Knife plugins to orchestrate machines and coordinate truth among your homebase, cloud and chef server. 
+* [ironfan-pantry](https://github.com/infochimps-labs/ironfan-pantry): Our collection of industrial-strength, cloud-ready recipes for Hadoop, HBase, Cassandra, Elasticsearch, Zabbix and more. 
+* [silverware cookbook](https://github.com/infochimps-labs/ironfan-pantry/tree/master/cookbooks/silverware): Helps you coordinate discovery of services ("list all the machines for `awesome_webapp`, that I might load balance them") and aspects ("list all components that write logs, that I might logrotate them, or that I might monitor the free space on their volumes"). Found within the [ironfan-pantry](https://github.com/infochimps-labs/ironfan-pantry).
 
-Please file all issues on [ironfan issues](https://github.com/infochimps-labs/ironfan/issues).
+### Documentation:
+
+* [index of wiki pages](https://github.com/infochimps-labs/ironfan/wiki/_pages)
+* [ironfan wiki](https://github.com/infochimps-labs/ironfan/wiki): High-level documentation and install instructions.
+* [ironfan issues](https://github.com/infochimps-labs/ironfan/issues): Bugs or questions and feature requests for *any* part of the Ironfan toolset.
+* [ironfan gem docs](http://rdoc.info/gems/ironfan): Rdoc docs for Ironfan.
+* [Ironfan Screen Cast](http://vimeo.com/37279372)-- build a Hadoop cluster from scratch in 20 minutes.
+
+To jump right into using Ironfan, follow our [Installation Instructions](https://github.com/infochimps-labs/ironfan/wiki/INSTALL). For an explanatory tour, check out our [Web Walkthrough](https://github.com/infochimps-labs/ironfan/wiki/walkthrough-web).  Please file all issues on [Ironfan Issues](https://github.com/infochimps-labs/ironfan/issues).
 
 ## Credits
 
@@ -25,4 +35,3 @@ Ideas, code, inspiration, two bucks in change, an old copy of Tiger Beat, but mo
 * [pivotal_workstation]
 * [OSX Cookbooks](https://github.com/josh/osx-cookbooks/tree/master/scratch) by Joshua Peek
 * [Installing Virtualbox on OSX with Chef](http://jtimberman.posterous.com/installing-virtualbox-on-osx-with-chef), [Managing my Workstations with Chef](http://jtimberman.posterous.com/managing-my-workstations-with-chef) and [Managing my Workstations with Chef II: Electric Boogaloo](http://jtimberman.posterous.com/update-to-managing-my-workstations) by J Timberman
-

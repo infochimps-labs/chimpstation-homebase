@@ -41,20 +41,28 @@ pkg
 .vendor
 .bundle
 
-*.pem
-
 ## PROJECT::SPECIFIC
+
+.rake_test_cache
+metadata.json
+*.pem
+.rvmrc
+.vagrant
+
+vagrants/iso/*
+vagrants/boxes/*
+vagrants/*
+*.box
+*.iso
 
 vendor/internal
 vendor/cluster_chef
-vendor/ironfan
-metadata.json
-.rake_test_cache
-.vagrant
+vendor/ironfan-knife
+
+knife/*-credentials
+knife-user-*.rb
+knife/checksums/*
+knife/plugins
+
 .chef
-
-*.box
-*.iso
-credentials
-
-Gemfile.lock
+vendor/ironfan-enterprise
