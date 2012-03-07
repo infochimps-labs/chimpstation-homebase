@@ -1,1 +1,0 @@
-../vendor/ironfan-pantry/roles/hbase_backup_tables.rb

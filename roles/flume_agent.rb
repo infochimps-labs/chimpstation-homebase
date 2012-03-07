@@ -1,1 +1,0 @@
-../vendor/ironfan-pantry/roles/flume_agent.rb

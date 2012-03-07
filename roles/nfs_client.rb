@@ -1,1 +1,0 @@
-../vendor/ironfan-pantry/roles/nfs_client.rb

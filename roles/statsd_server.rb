@@ -1,1 +1,0 @@
-../vendor/ironfan-pantry/roles/statsd_server.rb

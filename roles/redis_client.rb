@@ -1,1 +1,0 @@
-../vendor/ironfan-pantry/roles/redis_client.rb

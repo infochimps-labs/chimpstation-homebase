@@ -1,1 +1,0 @@
-../vendor/ironfan-pantry/roles/resque_server.rb

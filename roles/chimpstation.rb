@@ -1,7 +1,1 @@
-name        "chimpstation"
-description "Infochimps worksations"
-run_list(
-  "recipe[workstation]",
-)
-default_attributes(
-)
+../vendor/chimpstation-pantry/roles/chimpstation.rb

@@ -1,1 +1,0 @@
-../vendor/ironfan-pantry/roles/chef_client.rb
