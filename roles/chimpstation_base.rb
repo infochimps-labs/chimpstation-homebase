@@ -1,0 +1,1 @@
+../vendor/chimpstation-pantry/roles/chimpstation_base.rb

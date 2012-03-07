@@ -5,7 +5,13 @@ Ironfan.cluster 'workstation' do
 
   environment           :ws
 
-  role   :
+  role   :chimpstation_base
+  # role   :chimpstation_prefs
+  # 
+  role   :osx_base
+  # role   :osx_prefs
+  # 
+  # role   :package_set
 
   facet :mrflip do
     # server(0).name   'worblehat'
