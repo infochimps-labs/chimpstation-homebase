@@ -1,5 +1,5 @@
-name        "dev"
-description "Development environment"
+name        "ws"
+description "Workstation environment"
 
 require File.expand_path("_default", File.dirname(__FILE__))
 

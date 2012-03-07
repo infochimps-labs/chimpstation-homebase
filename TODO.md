@@ -31,7 +31,9 @@
 
 * zsh
   - assembly of atomic files
-  
+
+
+
 ## Brew and DMG Packages  
   
 ### Essentials
