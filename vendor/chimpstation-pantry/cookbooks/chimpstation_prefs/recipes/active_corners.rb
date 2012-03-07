@@ -12,9 +12,9 @@ active_corner_value_to_int = {
 
 corners = {
   :tl => :all_windows,
-  :tr => :dashboard
+  :tr => :dashboard,
   :br => :noop,
-  :bl => :noop 
+  :bl => :noop
 }
 
 corners.each do |corner, value|

@@ -1,5 +1,5 @@
 name        "ironfan_ci_master"
-description "Ironfan CI: "
+description "Chimpstation: sets up a local Ironfan-CI master"
 
 run_list(
   "role[jenkins_master]"

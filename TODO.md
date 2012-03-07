@@ -31,7 +31,6 @@ __________________________________________________________________________
   - flip has:
   - option-left, option-right to C-a, C-e
 
-
 ### Emacs
 
 * installs emacs24 via homebrew

@@ -1,16 +1,18 @@
-name        "cstn_base"
-description "Chimpstation: base config"
+name        "package_set"
+description "Chimpstation: bulk installs package sets"
 
-run_list(
-  "recipe[homebrew]",
-  # "recipe[package_set]"
-  )
-
+run_list(*%w[
+  recipe[homebrew]
+  recipe[package_set]
+  ])
 
 default_attributes({
     # Package sets to install. Add or remove as convenience & prudence dictate.
     :package_set => {
-      :install     => %w[ !merge: osx_base osx_dev osx_libs osx_sysadmin osx_editors osx_chef_server osx_web_dev osx_backend osx_testing osx_langs osx_text osx_cloud ],
+      :install     => %w[ !merge:
+        osx_base osx_dev osx_libs osx_sysadmin osx_editors
+        osx_chef_server osx_web_dev osx_backend osx_testing
+        osx_langs osx_text osx_cloud ],
       :pkgs        => {
 
         :osx_base        => [

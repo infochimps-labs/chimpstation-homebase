@@ -1,1 +1,0 @@
-../vendor/chimpstation-pantry/roles/cstn_base.rb
