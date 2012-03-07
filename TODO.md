@@ -1,11 +1,11 @@
+# Issues
 
 
-### Infrastructure
+* must run some stuff as sudo, which leads to some suckage
 
-* chef:
-  - create homebase repo
-  - create chef organization 
-  - create & populate credentials repo
+__________________________________________________________________________
+
+# Tasks
 
 ## Configuration
 
@@ -21,10 +21,20 @@
 * command is meta
 * solarized colors
 
+
+* terminal keystrokes
+  - flip wants:
+  - ctrl-left, ctrl-right     to M-b M-f 
+  - home, end                 to C-a, C-e
+  - page-up, page-down        to 'scroll to {next,previous} page in buffer'
+
+  - flip has:
+  - option-left, option-right to C-a, C-e
+
+
 ### Emacs
 
 * installs emacs24 via homebrew
-* 
 
 
 ### Dotfiles
@@ -33,10 +43,9 @@
   - assembly of atomic files
 
 
-
 ## Brew and DMG Packages  
   
-### Essentials
+### Essentials  
 
 * homebrew
 * git 

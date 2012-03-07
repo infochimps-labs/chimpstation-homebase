@@ -7,7 +7,44 @@ This repo uses chef and ironfan to provision a developer workstation on OSX. It 
 * Your Chef and cloud credentials
 * Pantries (collections of cookbooks, roles and so forth)
 
-## Index
+
+
+## Getting Started
+
+We'll use the following conventions:
+
+* `${organization}`  for the name of your chef organization
+* `${chef_user}`     for your user name on the chef server
+* `${homebase}`      for the directory holding your repo
+
+* homebase repo
+  - on github, fork the [chimpstation-homebase](http://github.com/infochimps-labs/chimpstation) repo
+  - clone it to your machine, into the directory you'll use (`${homebase}`)
+  - run the following to produce a new credentials repo
+  
+        cp -rp knife/example-credentials knife/${organization}-credentials
+        ln -s knife .chef
+        cd knife
+        ln -s ${organization}-credentials credentials
+        
+* chef organization  
+  - go to opscode, create a chef organization. 
+  - download the `${organization}-validator.pem` to knife/credentials
+  - copy your chef server user key to `knife/credentials/${chef_user}.pem`
+  - fix the permissions on the key files: `chmod 600 knife/credentials/*.pem`
+  
+# What it does
+
+
+
+
+
+
+__________________________________________________________________________
+__________________________________________________________________________
+__________________________________________________________________________
+
+# Ironfan Toolset
 
 Chimpstation uses ironfan, an expressive toolset for constructing scalable, resilient architectures. The full Ironfan toolset:
 
