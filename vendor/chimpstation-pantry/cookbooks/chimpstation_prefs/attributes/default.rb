@@ -33,10 +33,3 @@ default[:osx_prefs][:safari][:show_develop_menu]   = true
 default[:osx_prefs][:safari][:show_favorites_bar]  = true
 default[:osx_prefs][:safari][:show_status_bar]     = true
 default[:osx_prefs][:safari][:show_tab_bar]        = true
-
-
-IncludeDebugMenu
-IncludeDevelopMenu
-ShowFavoritesBar
-ShowStatusBar
-AlwaysShowTabBar
