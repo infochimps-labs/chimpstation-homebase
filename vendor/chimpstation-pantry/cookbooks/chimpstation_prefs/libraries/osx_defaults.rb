@@ -108,6 +108,18 @@ class Chef::Provider::OsxDefaults < Chef::Provider
     end
   end
 
+  decoder :float do |value|
+    value.to_f
+  end
+
+  encoder :float do |obj|
+    if obj.respond_to?(:to_float)
+      obj
+    else
+      nil
+    end
+  end
+
 
   include Chef::Mixin::Command
 
