@@ -14,8 +14,9 @@ run_list(*%w[
   chimpstation_pkg::gitx
   chimpstation_pkg::keycastr
 
-  chimpstation_pkg::screensharing
   ])
+
+  # chimpstation_pkg::screensharing
 
   # chimpstation_pkg::java_osx
   # chimpstation_pkg::mongodb

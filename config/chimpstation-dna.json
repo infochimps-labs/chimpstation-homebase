@@ -1,7 +1,8 @@
 {
-  "cluster_name":       "worblehat",
-  "facet_name":         "laptop",   
-  "facet_index":        "0",        
+  "organization":       "chimpstation",
+  "cluster_name":       "workstation",
+  "facet_name":         "mrflip",   
+  "facet_index":        "0",
   
   "chef_server": {
     "server_url":       "http://localhost:4000",
@@ -15,11 +16,12 @@
   },
   "java": { "install_flavor": "osx" },
   "run_list": [
-    "recipe[silverware]",
-    "recipe[homebrew]",
-    "role[cstn_base]",
-    "role[chef_server]",
-    "recipe[chef-client::config]",
-    "role[ironfan_ci_master]"
+    "role[chimpstation_base]",
+    "role[chimpstation_prefs]",
+    "role[osx_base]",
+    "role[osx_prefs]",
+    "role[osx_apps]"
   ]
 }
+
+

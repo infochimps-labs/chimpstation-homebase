@@ -84,6 +84,13 @@ __________________________________________________________________________
   - C-x f is find-file (not set-fill-column)
 
 
+* if desired, here is snippet to use with osx_application definition:
+
+      "Emacs": {
+        "url": "http://emacsformacosx.com/emacs-builds/Emacs-pretest-24.0.93-universal-10.6.8.dmg",
+        "checksum": "d51e85bc5c7bfa7d2cf28c249c17fa4733d53"
+
+
 #### Things I don't know how to do in emacs but I know they're awesome and possible
 
 * is there a way to make it compile the .el files into .elc (even if it involves a Guardfile)? Cause that makes startup HELLA faster
