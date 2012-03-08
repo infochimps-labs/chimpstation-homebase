@@ -3,6 +3,10 @@
 
 * must run some stuff as sudo, which leads to some suckage
 
+
+* note the existence of FileEdit class (in chef/chef/lib/chef/util)  -- has `search_file_replace_line` and stuff -- http://tickets.opscode.com/browse/CHEF-78
+
+
 ## Hi Travis
 
 
@@ -25,6 +29,7 @@ __________________________________________________________________________
 * set global keys 
 * impose modest system prefs
 
+* solarized into OSX colorpalette
 
 ### Terminal
 
@@ -103,6 +108,9 @@ __________________________________________________________________________
 * zsh
   - assembly of atomic files
 
+### Textmate
+
+* [solarized color scheme](https://github.com/altercation/solarized/tree/master/textmate-colors-solarized)
 
 ## Brew and DMG Packages  
   
