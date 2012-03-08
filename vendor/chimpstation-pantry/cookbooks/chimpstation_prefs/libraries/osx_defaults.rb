@@ -2,10 +2,11 @@ require 'chef/resource'
 
 class Chef::Resource::OsxDefaults < Chef::Resource
   def initialize(domain, key, run_context = nil)
-    super("#{domain} #{key}", run_context)
+    @comment = "Set #{domain.split('.').last} #{key}"
+    super("#{@comment}", run_context)
 
     if run_context
-      @user = run_context.node[:osx_defaults][:user]
+      @user = run_context.node[:osx_prefs][:user]
     else
       @user = nil
     end
@@ -60,7 +61,6 @@ class Chef::Provider::OsxDefaults < Chef::Provider
   def self.encoder(type, &block)
     encoders[type.to_s] = block
   end
-
 
   decoder :boolean do |value|
     case value
@@ -117,7 +117,7 @@ class Chef::Provider::OsxDefaults < Chef::Provider
 
     @current_resource = Chef::Resource::OsxDefaults.new(domain, key, @run_context)
 
-    status, stdout, stderr = output_of_command("defaults read-type #{domain} #{key}", {:user => @current_resource.user})
+    status, stdout, stderr = output_of_command("defaults read-type '#{domain}' '#{key}'", {:user => @current_resource.user})
     if status == 0 && stdout =~ /Type is (\w+)/
       @current_resource.type($1)
     end
@@ -126,7 +126,7 @@ class Chef::Provider::OsxDefaults < Chef::Provider
       @new_resource.type(@current_resource.type)
     end
 
-    status, stdout, stderr = output_of_command("defaults read #{domain} #{key}", {:user => @current_resource.user})
+    status, stdout, stderr = output_of_command("defaults read '#{domain}' '#{key}'", {:user => @current_resource.user})
     if status == 0
       value = decode(@current_resource.type, stdout)
       @current_resource.value(value)
@@ -168,52 +168,53 @@ class Chef::Provider::OsxDefaults < Chef::Provider
     type   = resource.type
     value  = encode(type, resource.value)
 
-    command = "defaults write #{domain} #{key} -#{type} #{value.inspect}"
+    command = "defaults write '#{domain}' '#{key}' -'#{type}' '#{value}'"
 
     run_command(
-      :command => command,
+      :command        => command,
       :command_string => resource.to_s,
-      :user => resource.user
+      :user           => resource.user
     )
   end
 
   def delete_key(resource)
     domain  = resource.domain
     key     = resource.key
-    command = "defaults delete #{domain} #{key}"
+    command = "defaults delete '#{domain}' '#{key}'"
 
     run_command(
-      :command => command,
+      :command        => command,
       :command_string => resource.to_s,
-      :user => resource.user
+      :user           => resource.user
     )
   end
 
-  private
-    def decode(type, value)
-      if decoder = self.class.decoders[type]
-        decoder.call(value)
-      else
-        raise "Unknown decoder for #{type}: #{value.inspect}"
+private
+
+  def decode(type, value)
+    if decoder = self.class.decoders[type]
+      decoder.call(value)
+    else
+      raise "Unknown decoder for #{type}: #{value.inspect}"
+    end
+  end
+
+  def encode(type, obj)
+    if encoder = self.class.encoders[type]
+      encoder.call(obj)
+    else
+      raise "Unknown encoder for #{type}: #{obj.inspect}"
+    end
+  end
+
+  def guess_type(obj)
+    Chef::Log.debug "Guessing defaults type for #{obj.inspect}"
+    self.class.encoders.each do |type, encoder|
+      if encoder.call(obj)
+        return type
       end
     end
 
-    def encode(type, obj)
-      if encoder = self.class.encoders[type]
-        encoder.call(obj)
-      else
-        raise "Unknown encoder for #{type}: #{obj.inspect}"
-      end
-    end
-
-    def guess_type(obj)
-      Chef::Log.debug "Guessing defaults type for #{obj.inspect}"
-      self.class.encoders.each do |type, encoder|
-        if encoder.call(obj)
-          return type
-        end
-      end
-
-      raise "Could not guess type of #{obj.inspect}"
-    end
+    raise "Could not guess type of #{obj.inspect}"
+  end
 end
