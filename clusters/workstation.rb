@@ -19,4 +19,7 @@ Ironfan.cluster 'workstation' do
     # role   :osx_heavy
   end
 
+  facet :travis do
+  end
+
 end
