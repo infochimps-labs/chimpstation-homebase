@@ -1,3 +1,8 @@
+execute "set safari to show status bar" do
+  command "defaults write com.apple.safari ShowStatusBar -bool YES"
+  user $ws_user
+end
+
 defaults "com.apple.safari", "AutoFillPasswords" do
   value node[:apple][:safari][:auto_fill_passwords]
 end
