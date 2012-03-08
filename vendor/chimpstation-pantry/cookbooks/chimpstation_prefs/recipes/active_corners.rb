@@ -20,11 +20,11 @@ corners = {
 corners.each do |corner, value|
   execute "#{corner} right #{value}" do
     command "defaults write com.apple.dock wvous-#{corner}-corner -int #{active_corner_value_to_int[value]}"
-    user WS_USER
+    user $ws_user
   end
   execute "#{corner} modifier" do
     command "defaults write com.apple.dock wvous-#{corner}-modifier -int 0"
-    user WS_USER
+    user $ws_user
   end
 end
 

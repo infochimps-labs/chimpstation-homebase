@@ -9,10 +9,14 @@
 
 # run the right knife command on changes within the cookbooks, roles and data_bags directories
 guard 'chef' do
-  watch(%r{^.*cookbooks/(.+)/})
-  watch(%r{^roles/(.+)\.(rb|json)\z})
-  watch(%r{^data_bags/(.+)/})
-  watch(%r{^environments/.(rb|json)\z})
+  file_chars = '[\w\-\:\.]+'
 
-  watch(%r{^vendor/[^/]+/(.+)}){|m| fn = "cookbooks/#{m[1]}" ; p [m, fn] ; fn }
+  # watch files in vendor/foo-pantry/cookbooks/*; act on them if they are
+  # symlinked into action
+  watch(%r{vendor/[^/]+/((?:cookbooks|roles|data_bags)/#{file_chars})}){|m| m[1] if File.exists?(m[1]) }
+  #
+  watch(%r{^[^/]*cookbooks/(#{file_chars})/})
+  watch(%r{^data_bags/(#{file_chars})/})
+  watch(%r{^roles/(#{file_chars})\.(rb|json)\z})
+  watch(%r{^environments/(#{file_chars}\.(rb|json))\z})
 end

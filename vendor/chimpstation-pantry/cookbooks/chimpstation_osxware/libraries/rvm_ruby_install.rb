@@ -8,7 +8,7 @@ class Chef::Recipe
 
       execute "clean out the archive and src directories each time.  bad downloads cause problems with rvm" do
         command "rm -rf #{::RVM_HOME}/archives/*; rm -rf #{::RVM_HOME}/src/*"
-        user WS_USER
+        user $ws_user
       end
 
       install_cmd = "#{env_override} #{RVM_COMMAND} install #{ruby_version}"
@@ -23,12 +23,12 @@ class Chef::Recipe
 
       execute "installing #{ruby_version} with RVM: #{install_cmd}" do
         command install_cmd
-        user WS_USER
+        user $ws_user
       end
 
       execute "check #{ruby_version}" do
         command "#{RVM_COMMAND} list | grep #{ruby_version}"
-        user WS_USER
+        user $ws_user
       end
 
     end

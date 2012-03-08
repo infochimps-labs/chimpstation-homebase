@@ -1,7 +1,7 @@
 include_recipe "chimpstation_base::bash_profile"
 include_recipe "chimpstation_base::git"
 
-::RBENV_HOME = "#{WS_HOME}/.rbenv"
+::RBENV_HOME = "#{$ws_home}/.rbenv"
 ::RBENV_COMMAND = "/usr/local/bin/rbenv"
 
 brew_install("rbenv")
@@ -16,6 +16,6 @@ end
 if node["rbenv"]["default_ruby"]
   execute "making #{node["rbenv"]["default_ruby"]} with rbenv the default" do
     command "rbenv global #{node["rbenv"]["default_ruby"]}"
-    user WS_USER
+    user $ws_user
   end
 end

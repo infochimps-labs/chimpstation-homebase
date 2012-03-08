@@ -4,7 +4,7 @@ include_recipe "chimpstation_base::git"
 include_recipe "chimpstation_base::rvm"
 
 execute "brew install macvim with system ruby" do
-  user WS_USER
+  user $ws_user
   command "rvm use system && brew install macvim"
   not_if "brew list | grep '^macvim$'"
 end
@@ -26,13 +26,13 @@ git "#{node["vim_home"]}" do
   branch "master"
   revision node["vim_hash"] || "HEAD"
   action :checkout
-  user WS_USER
+  user $ws_user
   enable_submodules true
 end
 
-link "#{WS_HOME}/.vimrc" do
+link "#{$ws_home}/.vimrc" do
   to "#{node["vim_home"]}/vimrc"
-  owner WS_USER
+  owner $ws_user
 end
 
 brew_install "ctags"
@@ -41,7 +41,7 @@ execute "compile command-t" do
   not_if "test -f #{node["vim_home"]}/bundle/command-t/ruby/command-t/compiled"
   cwd "#{node["vim_home"]}/bundle/command-t/ruby/command-t"
   command "rvm use system && ruby extconf.rb && make && touch compiled"
-  user WS_USER
+  user $ws_user
 end
 
 ruby_block "test to see if MacVim link worked" do

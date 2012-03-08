@@ -14,6 +14,6 @@ unless File.exists?("/Applications/SizeUp.app")
 
   execute "unzip sizeup" do
     command "unzip /tmp/sizeup.zip SizeUp.app/* -d /Applications/"
-    user WS_USER
+    user $ws_user
   end
 end

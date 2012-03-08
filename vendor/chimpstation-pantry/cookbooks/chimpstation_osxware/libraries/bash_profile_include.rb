@@ -4,7 +4,7 @@ class Chef::Recipe
 
     template "#{BASH_INCLUDES_SUBDIR}/#{bash_file}.sh" do
       source "bash_profile-#{bash_file}.sh.erb"
-      owner WS_USER
+      owner $ws_user
       backup false
       mode "0755"
     end

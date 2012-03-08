@@ -15,12 +15,12 @@ git "/tmp/homebrew" do
   revision homebrew_git_revision_hash
   destination "/tmp/homebrew"
   action :sync
-  user WS_USER
+  user $ws_user
 end
 
 execute "Copying homebrew's .git to /usr/local" do
   command "rsync -axSH /tmp/homebrew/ /usr/local/"
-  user WS_USER
+  user $ws_user
 end
 
 ruby_block "Check that homebrew is running & working" do
@@ -33,5 +33,5 @@ ruby_block "Check that homebrew is running & working" do
 end
 
 directory "/usr/local/sbin" do
-  owner WS_USER
+  owner $ws_user
 end

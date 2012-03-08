@@ -1,5 +1,5 @@
-WS_USER = ENV['SUDO_USER'].strip
-WS_HOME = ENV['HOME']
-WS_LIBRARY = "#{WS_HOME}/Library"
+$ws_user    = ENV['USER'].strip
+$ws_home    = ENV['HOME']
+$ws_library = "#{$ws_home}/Library"
 
-raise "should not be root" if WS_USER=="root"
+raise "should not be root" if $ws_user=="root"

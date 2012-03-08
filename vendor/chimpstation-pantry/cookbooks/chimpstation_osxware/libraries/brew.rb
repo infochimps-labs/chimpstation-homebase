@@ -3,7 +3,7 @@ class Chef::Recipe
     include_recipe "chimpstation_base::homebrew"
 
     execute "brew install #{package} #{opts[:brew_args]}" do
-      user WS_USER
+      user $ws_user
       command "brew install #{package} #{opts[:brew_args]}"
       not_if "brew list | grep '^#{package}$'"
     end
@@ -21,7 +21,7 @@ class Chef::Recipe
     brew_installed = `brew list | grep #{package}`
     unless brew_installed.empty?
       execute "brew remove #{package}" do
-        user WS_USER
+        user $ws_user
         command "brew remove #{package}"
       end
     end
@@ -31,7 +31,7 @@ class Chef::Recipe
     include_recipe "chimpstation_base::homebrew"
 
     execute "brew update" do
-      user WS_USER
+      user $ws_user
       command "brew update"
     end
   end

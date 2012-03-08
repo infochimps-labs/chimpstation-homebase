@@ -3,12 +3,12 @@ include_recipe "chimpstation_base::user_owns_usr_local"
 unless File.exists?("/Applications/TextMate.app")
   execute "download text mate to temp dir" do
     command "curl -o /tmp/textmate.zip http://dl.macromates.com/TextMate_1.5.10_r1623.zip"
-    user WS_USER
+    user $ws_user
   end
 
   execute "extract text mate to /Applications" do
     command 'unzip -o /tmp/textmate.zip -x __MACOSX* -d /Applications/'
-    user WS_USER
+    user $ws_user
   end
 
   execute "link textmate" do

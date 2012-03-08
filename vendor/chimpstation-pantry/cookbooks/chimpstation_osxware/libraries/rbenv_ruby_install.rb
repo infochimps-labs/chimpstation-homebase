@@ -10,12 +10,12 @@ class Chef::Recipe
 
       execute "installing #{ruby_version} with RBENV: #{install_cmd}" do
         command install_cmd
-        user WS_USER
+        user $ws_user
       end
 
       execute "check #{ruby_version}" do
         command "#{RBENV_COMMAND} versions | grep #{ruby_version}"
-        user WS_USER
+        user $ws_user
       end
 
     end

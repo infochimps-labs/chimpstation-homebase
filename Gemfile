@@ -1,12 +1,50 @@
 source "http://rubygems.org"
 
-gem 'chef',          "= 0.10.8"
-gem 'ironfan',  "~> 3.0.12"
+#
+# Chef
+#
+
+gem 'chef',            "= 0.10.8"
+# gem 'ironfan',         "~> 3.1.4"
+
+# # vagrant and chef are being dicks about the version net-ssh should have.
+# # to use the knife vagrant stuff you will have to munge the chef gemspec
+# gem 'vagrant',         "~> 0.9.7"
+# gem 'veewee',          "~> 0.2.3"
+
+#
+# Test drivers
+#
+
+group :test do
+  gem 'rake'
+  gem 'bundler',       "~> 1"
+  gem 'rspec',         "~> 2.5"
+  gem 'redcarpet',   "~> 2"
+  gem 'cucumber',      "~> 1.1"
+end
+
+#
+# Development
+#
 
 group :development do
-  gem 'ruby_gntp'
+  gem 'yard',          "~> 0.6"
+  gem 'jeweler'
 
-  gem 'guard'
-  gem 'guard-process'
-  gem 'guard-chef'
+  gem 'ruby_gntp'
+  if RUBY_PLATFORM.include?('darwin')
+    gem 'growl',      "~> 1"
+    gem 'rb-fsevent', "~> 0.9"
+  end
+
+  gem 'guard',         "~> 1"
+  gem 'guard-process', "~> 1"
+  gem 'guard-chef',    :git => 'git@github.com:infochimps/guard-chef.git'
+  gem 'guard-cucumber'
+end
+
+group :support do
+  gem 'pry'  # useful in debugging
+  gem 'grit' # used in rake scripts for push/pulling cookbooks
 end

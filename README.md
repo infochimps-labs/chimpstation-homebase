@@ -8,6 +8,11 @@ This repo uses chef and ironfan to provision a developer workstation on OSX. It 
 * Pantries (collections of cookbooks, roles and so forth)
 
 
+# ISSUES
+
+      sudo chgrp admin /Applications/ 
+      sudo chmod g+wrx /Applications/
+
 
 ## Getting Started
 

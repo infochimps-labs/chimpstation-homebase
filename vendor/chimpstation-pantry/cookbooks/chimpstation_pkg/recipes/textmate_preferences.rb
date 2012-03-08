@@ -2,12 +2,12 @@ include_recipe "chimpstation_base::textmate"
 
 execute "set save on losing focus" do
   command "defaults write ~/Library/Preferences/com.macromates.textmate OakSaveAllOnDeactivate -bool TRUE"
-  user WS_USER
+  user $ws_user
 end
 
 execute "show line numbers" do
   command "defaults write ~/Library/Preferences/com.macromates.textmate OakTextViewLineNumbersEnabled -bool TRUE"
-  user WS_USER
+  user $ws_user
 end
 
 gem_package("plist")

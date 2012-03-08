@@ -4,8 +4,8 @@ DEFAULT_PIVOTAL_MYSQL_PASSWORD = "password"
 
 include_recipe "chimpstation_base::homebrew"
 
-directory "/Users/#{WS_USER}/Library/LaunchAgents" do
-  owner WS_USER
+directory "/Users/#{$ws_user}/Library/LaunchAgents" do
+  owner $ws_user
   action :create
 end
 
@@ -13,19 +13,19 @@ run_unless_marker_file_exists("mysql_" + marker_version_string_for("homebrew")) 
   brew_install("mysql")
 
   execute "copy mysql plist to ~/Library/LaunchAgents" do
-    command "cp `brew --prefix mysql`/com.mysql.mysqld.plist #{WS_HOME}/Library/LaunchAgents/"
-    user WS_USER
+    command "cp `brew --prefix mysql`/com.mysql.mysqld.plist #{$ws_home}/Library/LaunchAgents/"
+    user $ws_user
   end
 
   execute "mysql_install_db" do
-    command "mysql_install_db --verbose --user=#{WS_USER} --basedir=\"$(brew --prefix mysql)\" --datadir=/usr/local/var/mysql --tmpdir=/tmp"
-    user WS_USER
+    command "mysql_install_db --verbose --user=#{$ws_user} --basedir=\"$(brew --prefix mysql)\" --datadir=/usr/local/var/mysql --tmpdir=/tmp"
+    user $ws_user
   end
 end
 
 execute "load the mysql plist into the mac daemon startup thing" do
-  command "launchctl load -w #{WS_HOME}/Library/LaunchAgents/com.mysql.mysqld.plist"
-  user WS_USER
+  command "launchctl load -w #{$ws_home}/Library/LaunchAgents/com.mysql.mysqld.plist"
+  user $ws_user
   not_if "launchctl list com.mysql.mysqld"
 end
 

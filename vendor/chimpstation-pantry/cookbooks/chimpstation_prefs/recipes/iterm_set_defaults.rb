@@ -12,28 +12,28 @@ execute "set iterm default terminal settings" do
         "Term Type" = xterm;
     }'
     $
-  user WS_USER
+  user $ws_user
 end
-  
+
 execute "use the darm background" do
    command %$defaults write ~/Library/Preferences/net.sourceforge.iTerm Bookmarks -dict-add Entries  ' (
                 {
             Data =             {
-                Command = "login -fp #{WS_USER}";
+                Command = "login -fp #{$ws_user}";
                 "Default Bookmark" = Yes;
-                Description = "login -fp #{WS_USER}";
+                Description = "login -fp #{$ws_user}";
                 "Display Profile" = "Dark Background";
                 "Keyboard Profile" = Global;
                 Name = Default;
                 Shortcut = "";
                 "Terminal Profile" = Default;
-                "Working Directory" = "/Users/#{WS_USER}";
+                "Working Directory" = "/Users/#{$ws_user}";
             };
             Entries =             (
             );
         }
     )'$
-    user WS_USER
+    user $ws_user
 end
 
 execute "set the colors" do
@@ -163,5 +163,5 @@ execute "set the colors" do
         Transparency = 0;
         "Vertical Character Spacing" = 1;
     }'$
-    user WS_USER
+    user $ws_user
   end
