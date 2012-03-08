@@ -1,3 +1,3 @@
-application "GitX" do
-  source "https://github.com/downloads/brotherbard/gitx/GitX%20Nov-17-2010.zip"
-end
+include_recipe 'install_from'
+
+osx_application('git_x')

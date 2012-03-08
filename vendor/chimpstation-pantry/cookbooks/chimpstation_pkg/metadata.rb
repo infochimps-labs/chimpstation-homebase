@@ -7,6 +7,8 @@ version          "3.1.0"
 description      "OSX Workstation packages"
 
 depends          "install_from"
+depends          "homebrew"
+depends          "dmg"
 
 recipe           "chimpstation_pkg::github_for_mac",   "Installs the github_for_mac application"
 
