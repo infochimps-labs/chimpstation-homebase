@@ -1,20 +1,22 @@
-execute "ask for password when screen is locked" do
-  command "defaults write com.apple.screensaver askForPassword -int 1"
-  user $ws_user
-end
 
-execute "wait 60 seconds between screensaver & lock" do
-  command "defaults write com.apple.screensaver askForPasswordDelay -float 60"
-  user $ws_user
-end
+#
+# Screensaver
+#
+
+domain = "com.apple.screensaver"
+osx_defaults(domain, 'askForPassword'     ){ value  1 }
+osx_defaults(domain, 'askForPasswordDelay'){ value  node[:osx_prefs][:screensaver][:lock_delay] }
 
 plist_dir = ENV['HOME'] + "/Library/Preferences/ByHost"
-Dir["#{plist_dir}/com.apple.screensaver.*.plist"].each do |file|
-  execute "set screensaver timeout" do
-    command "defaults write #{file.chomp(".plist")} idleTime 600"
-    user $ws_user
-  end
+Dir["#{plist_dir}/com.apple.screensaver.*.plist"].each do |domain|
+  osx_defaults(domain.gsub(/\.plist$/,''), 'idleTime'){ value  600 }
 end
+
+pmset_vals = Mash.new
+pmset_lines = `pmset -g`.chomp.split("\n").select{|line| line =~ /^\s+/ }
+pmset_lines.each{|line| key, val = line.strip.split(/\s+/, 2) ; pmset_vals[key] = val }
+
+p pmset_vals
 
 execute "set display, disk and computer sleep times" do
   command "pmset -a displaysleep 20 disksleep 15 sleep 0"
