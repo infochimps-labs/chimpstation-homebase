@@ -33,17 +33,20 @@ osx_defaults(domain, "NSQuitAlwaysKeepsWindows"           ){ value false }
 #
 
 # # The “Are you sure you want to open this application?” dialog
-osx_defaults('com.apple.LaunchServices', "LSQuarantine"	){ value true }
+osx_defaults('com.apple.LaunchServices', "LSQuarantine" ){ value true }
 # Avoid creating .DS_Store files on network volumes
-osx_defaults('com.apple.desktopservices',  "DSDontWriteNetworkStores"	){ value true }
+osx_defaults('com.apple.desktopservices',  "DSDontWriteNetworkStores"   ){ value true }
 # Automatically open a new Finder window when a volume is mounted
-osx_defaults('com.apple.frameworks.diskimages', "auto-open-ro-root"	){ value true }
-osx_defaults('com.apple.frameworks.diskimages', "auto-open-rw-root"	){ value true }
+osx_defaults('com.apple.frameworks.diskimages', "auto-open-ro-root"     ){ value true }
+osx_defaults('com.apple.frameworks.diskimages', "auto-open-rw-root"     ){ value true }
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
 osx_defaults('com.apple.NetworkBrowser',    "BrowseAllInterfaces"   ){ value true }
 # Show remaining battery time; hide percentage
 osx_defaults('com.apple.menuextra.battery', "ShowPercent"   ){ value false }
 osx_defaults('com.apple.menuextra.battery', "ShowTime"      ){ value true }
+
+# Tell terminal not to restore screen buffer (kills battery)
+osx_defaults('com.apple.Terminal', "NSQuitAlwaysKeepsWindows"      ){ value false }
 
 #
 # FIXME: these need sudo
@@ -93,7 +96,7 @@ osx_defaults(domain, "WarnAboutFraudulentWebsites"    ){ value true }
 osx_defaults(domain, "WebKitTabToLinksPreferenceKey"  ){ value true }
 osx_defaults(domain, "WebKitFixedFont"                ){ value 'Menlo' }
 
-osx_defaults(domain, "IncludeDebugMenu"               ){ value node[:osx_prefs][:safari][:show_debug_menu]    } 
+osx_defaults(domain, "IncludeDebugMenu"               ){ value node[:osx_prefs][:safari][:show_debug_menu]    }
 osx_defaults(domain, "IncludeDevelopMenu"             ){ value node[:osx_prefs][:safari][:show_develop_menu]  }
 osx_defaults(domain, "ShowFavoritesBar"               ){ value node[:osx_prefs][:safari][:show_favorites_bar] }
 osx_defaults(domain, "ShowStatusBar"                  ){ value node[:osx_prefs][:safari][:show_status_bar]    }

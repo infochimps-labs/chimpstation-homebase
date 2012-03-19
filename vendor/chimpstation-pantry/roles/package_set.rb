@@ -23,7 +23,7 @@ default_attributes({
       :pkgs        => {
         :osx_base        => [
           "readline", "binutils", "coreutils", "findutils", "patchutils", "proctools",
-          "zsh", "bash", "bash-completion", ],
+          "zsh", "bash", "bash-completion", "parallel", ],
 
         :osx_dev         => [
           "git", "git-subtree", "git-utils", "ctags", "gnu-indent", "gnu-sed",
@@ -42,8 +42,8 @@ default_attributes({
 
         :osx_editors     => [ "emacs", "macvim", ],
         :osx_chef_server => [ "rabbitmq", "couchdb", ],
-        :osx_web_dev     => [ "nginx", "pow", "coffee-script", "node", "imagemagick", ],
-        :osx_data_miner  => [ "nginx", "pow", "coffee-script", "node", "imagemagick", ],
+        :osx_web_dev     => [ "nginx", "coffee-script", "node", "imagemagick", ],
+        :osx_data_miner  => [ "nginx", "coffee-script", "node", "imagemagick", ],
 
         :osx_langs       => [ "coffee-script", "lua", "luarocks", "node", "phantomjs", "r", "v8", ],
         :osx_cloud       => [ "aws-iam-tools", "ec2-ami-tools", "ec2-api-tools", "elb-tools", "s3cmd", "s3sync", ],
@@ -57,19 +57,12 @@ default_attributes({
       :gems          => {
         :osx_base        => %w[ bundler jeweler ],
         :osx_dev         => %w[
-
-          extlib json yajl-ruby awesome_print addressable cheat rest-client
-          yard jeweler rspec watchr pry wirble hirb
-          configliere gorillib wukong swineherd hackboxen
-
-          rails extlib json crack yajl-ruby addressable rest-client thor yard
-          awesome_print pry wirble hirb cheat guard watchr
-          configliere gorillib wukong
-
-
-          log4r RedCloth guard htmlentities log4r log_buddy redcarpet simplecov multi_json
+          activesupport extlib json yajl-ruby multi_json addressable cheat
+          pry awesome_print wirble hirb jeweler guard
+          configliere gorillib log4r log_buddy
         ],
         :osx_sysadmin    => %w[],
+        :osx_data_miner  => %w[ wukong jeweler yard rspec ],
         :osx_chef_server => %w[ chef chef-server-api chef-server-webui chef-solr chef-expander ],
         :osx_web_dev     => %w[ sinatra gollum jekyll powder ],
         :osx_testing     => %w[ rspec cucumber

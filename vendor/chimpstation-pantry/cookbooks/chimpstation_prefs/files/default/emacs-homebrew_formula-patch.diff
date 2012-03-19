@@ -1,0 +1,50 @@
+diff --git a/Library/Formula/emacs.rb b/Library/Formula/emacs.rb
+index 4017637..b7edb40 100644
+--- a/Library/Formula/emacs.rb
++++ b/Library/Formula/emacs.rb
+@@ -22,12 +22,13 @@ class Emacs < Formula
+     [
+       ["--cocoa", "Build a Cocoa version of emacs"],
+       ["--lion", "Enable Lion full-screen mode"],
+       ["--srgb", "Enable sRGB colors in the Cocoa version of emacs"],
+       ["--with-x", "Include X11 support"],
+       ["--use-git-head", "Use Savannah git mirror for HEAD builds"],
++      ["--lockfiles-patch", "Apply a patch to let you control lockfile generation"],
+     ]
+   end
+ 
+   def patches
+     p = []
+ 
+@@ -42,12 +43,16 @@ class Emacs < Formula
+     end
+ 
+     if ARGV.include? "--lion"
+       p << "https://raw.github.com/gist/1274241"
+     end
+ 
++    if ARGV.include? "--lockfiles-patch"
++      p << "https://raw.github.com/gist/2100737"
++    end
++
+     return p
+   end
+ 
+   def install
+     args = ["--prefix=#{prefix}",
+             "--without-dbus",
+@@ -155,13 +160,13 @@ index 30b73c2..234b8b5 100644
+ # Fix for Shift key for IME users
+ diff --git a/src/nsterm.m b/src/nsterm.m
+ index 30b73c2..f0c154e 100644
+ --- a/src/nsterm.m
+ +++ b/src/nsterm.m
+ @@ -4489,6 +4489,7 @@ ns_term_shutdown (int sig)
+- 
++
+        /* if it was a function key or had modifiers, pass it directly to emacs */
+        if (fnKeysym || (emacs_event->modifiers
+ +                       && (emacs_event->modifiers != shift_modifier)
+                         && [[theEvent charactersIgnoringModifiers] length] > 0))
+  /*[[theEvent characters] length] */
+          {

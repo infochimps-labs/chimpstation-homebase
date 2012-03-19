@@ -1,0 +1,80 @@
+diff --git a/doc/emacs/files.texi b/doc/emacs/files.texi
+index 0d38728..6616b2b 100644
+--- a/doc/emacs/files.texi
++++ b/doc/emacs/files.texi
+@@ -732,15 +732,16 @@ file.
+ 
+ @findex ask-user-about-lock
+ @cindex locking files
+   When you make the first modification in an Emacs buffer that is
+ visiting a file, Emacs records that the file is @dfn{locked} by you.
+ (It does this by creating a specially-named symbolic link in the same
+-directory.)  Emacs removes the lock when you save the changes.  The
+-idea is that the file is locked whenever an Emacs buffer visiting it
+-has unsaved changes.
++directory.  You can disable this behavior by setting the variable
++@code{create-lockfiles} to @code{nil}).  Emacs removes the lock when
++you save the changes.  The idea is that the file is locked whenever an
++Emacs buffer visiting it has unsaved changes.
+ 
+ @cindex collision
+   If you begin to modify the buffer while the visited file is locked by
+ someone else, this constitutes a @dfn{collision}.  When Emacs detects a
+ collision, it asks you what to do, by calling the Lisp function
+ @code{ask-user-about-lock}.  You can redefine this function for the sake
+diff --git a/lisp/cus-start.el b/lisp/cus-start.el
+index fbba499..5743a6b 100644
+--- a/lisp/cus-start.el
++++ b/lisp/cus-start.el
+@@ -182,12 +182,13 @@ Leaving \"Default\" unchecked is equivalent with specifying a default of
+ 	     (debug-ignored-errors debug (repeat (choice symbol regexp)))
+ 	     (debug-on-quit debug boolean)
+              ;; fileio.c
+              (delete-by-moving-to-trash auto-save boolean "23.1")
+ 	     (auto-save-visited-file-name auto-save boolean)
+ 	     ;; filelock.c
++             (create-lockfiles files boolean)
+ 	     (temporary-file-directory
+ 	      ;; Darwin section added 24.1, does not seem worth :version bump.
+ 	      files directory nil
+ 	      :standard
+ 	      (file-name-as-directory
+ 	       ;; FIXME ? Should there be Ftemporary_file_directory to do this
+diff --git a/src/filelock.c b/src/filelock.c
+index 2613eec..b076976 100644
+--- a/src/filelock.c
++++ b/src/filelock.c
+@@ -547,12 +547,16 @@ lock_file (Lisp_Object fn)
+   ptrdiff_t locker_size;
+   lock_info_type lock_info;
+   printmax_t pid;
+   struct gcpro gcpro1;
+   USE_SAFE_ALLOCA;
+ 
++  /* Don't do locking if the user has opted out.  */
++  if (! Vcreate_lockfiles)
++    return;
++
+   /* Don't do locking while dumping Emacs.
+      Uncompressing wtmp files uses call-process, which does not work
+      in an uninitialized Emacs.  */
+   if (! NILP (Vpurify_flag))
+     return;
+ 
+@@ -719,12 +723,16 @@ void
+ syms_of_filelock (void)
+ {
+   DEFVAR_LISP ("temporary-file-directory", Vtemporary_file_directory,
+ 	       doc: /* The directory for writing temporary files.  */);
+   Vtemporary_file_directory = Qnil;
+ 
++  DEFVAR_BOOL ("create-lockfiles", Vcreate_lockfiles,
++              doc: /* Non-nil means use lockfiles to avoid editing collisions.  */);
++  Vcreate_lockfiles = 1;
++
+ #ifdef CLASH_DETECTION
+   defsubr (&Sunlock_buffer);
+   defsubr (&Slock_buffer);
+   defsubr (&Sfile_locked_p);
+ #endif
+ }

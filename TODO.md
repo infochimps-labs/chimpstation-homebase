@@ -144,3 +144,8 @@ __________________________________________________________________________
 * node
 * mysql
 * virtualbox
+
+## Security stuff
+
+* require password 5 min after sleep/screensaver
+* disable automatic login
