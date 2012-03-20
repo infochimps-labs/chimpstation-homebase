@@ -10,8 +10,37 @@ This repo uses chef and ironfan to provision a developer workstation on OSX. It 
 
 # ISSUES
 
-      sudo chgrp admin /Applications/ 
-      sudo chmod g+wrx /Applications/
+Yeah so there is some permissions issues since you don't want to run this as root. Briefly make the /Applications directory writeable (note -- do not use the `-R` (recursive) flag!)
+
+          sudo chgrp admin /Applications/ 
+          sudo chmod g+wrx /Applications/
+
+
+## Before getting started
+
+
+* install `Xcode` and the no-longer-installed-with-Xcode [GCC compiler binary](https://github.com/kennethreitz/osx-gcc-installer).
+
+* Follow [instructions to install Homebrew](https://github.com/mxcl/homebrew/wiki/installation), and install a few basic packages:
+  
+            /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/gist/323731)"
+            brew install readline coreutils git
+            brew update
+        
+* some version of ruby, preferably in the 1.9 family. I *think* that Lion is ruby 1.9 -- run `ruby --version`. As long as it's `1.9.2-p100` or newer you're good. 
+  - otherwise Install rbenv to give you control over your ruby environment. See instructions at rbenv site
+
+            brew install git ruby-build rbenv
+            rbenv install 1.9.3-p0
+            rbenv rehash
+            echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+        
+* install chef and ironfan
+
+            gem install chef ironfan
+
+* pick up down below.
+
 
 
 ## Getting Started
@@ -31,14 +60,15 @@ You only have to do the following once:
   - clone it to your machine, into the directory you'll use (`${chimpstation}`)
   - run the following to produce a new credentials repo. Note that the credentials directory will *not* be added to the chimpstation-homebase; you should use a separate git remote for it.
 
-        cd knife
-        cp -rp example-credentials        ${organization}-credentials
-        ln -s ${organization}-credentials credentials
-        cd ..
-        ln -s ./knife .chef
-        git add . ; git commit -m "set up credentials pointers"
+            cd knife
+            cp -rp example-credentials        ${organization}-credentials
+            ln -s ${organization}-credentials credentials
+            cd ..
+            ln -s ./knife .chef
+            git add . ; git commit -m "set up credentials pointers"
         
 * chef organization  
+
   - go to opscode, create a chef organization. 
   - download the `${organization}-validator.pem` to `knife/credentials`
   - copy your chef server user key to `knife/credentials/${chef_user}.pem`
@@ -46,32 +76,20 @@ You only have to do the following once:
   
 * populate the chef server:
 
-        knife cookbook upload --all
-        knife role from file roles/*.rb
-        knife environment from file environments/ws.rb
+            knife cookbook upload --all
+            knife role from file roles/*.rb
+            knife environment from file environments/ws.rb
 
 ### Per-user
 
-* initial set up:
-  - install `Xcode`
-  - Follow [instructions to install Homebrew](https://github.com/mxcl/homebrew/wiki/installation). We highly recommend using the git install method:
-  
-        /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/gist/323731)"
-        brew update
-        brew install git ruby-build rbenv
-        rbenv install 1.9.3-p0
-        rbenv rehash
-        echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-        gem install chef 
-
 * chimpstation repo:
   - clone your chimpstation-homebase repo to your machine, into the directory you'll use (`${chimpstation}`)
-  
-        git clone git@github.com:infochimps-labs/chimpstation-homebase.git chimpstation 
-        cd chimpstation
-        git submodule update --init
-        git submodule foreach git checkout master
-        ln -s ./knife .chef
+
+            git clone git@github.com:infochimps-labs/chimpstation-homebase.git chimpstation 
+            cd chimpstation
+            git submodule update --init
+            git submodule foreach git checkout master
+            ln -s ./knife .chef
 
   - grab the credentials repo from a co-worker, and put it as `knife/${organization}-credentials`.
   
@@ -82,21 +100,17 @@ Commands like `knife client list` should now work; note that you have to cd into
   - `knife cluster sync workstation-${chef_user} --sync-all --no-cloud` will create the chef node for you, and leave the client key in `knife/credentials/client_keys/client-workstation-${chef_user}-0.pem`.
   - run the following (note the `$USER` vs `$chef_user`)
      
-        sudo mkdir /etc/chef
-        sudo chown $USER /etc/chef
-        cp knife/credentials/client_keys/client-workstation-${chef_user}-0.pem /etc/chef
-        cp config/client.rb /etc/chef
-        mkdir -p /usr/local/var/chef/$USER
+            sudo mkdir /etc/chef
+            sudo chown $USER /etc/chef
+            cp knife/credentials/client_keys/client-workstation-${chef_user}-0.pem /etc/chef
+            cp config/client.rb /etc/chef
+            mkdir -p /usr/local/var/chef/$USER
 
   - lastly, edit the top section of the `/etc/chef/client.rb` file to add your organization, facet and facet_index
 
 * run `chef-client` -- your workstation should configure itself!!
 
 # What it do
-
-
-
-
 
 
 
