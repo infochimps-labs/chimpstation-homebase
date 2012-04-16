@@ -15,6 +15,8 @@ Yeah so there is some permissions issues since you don't want to run this as roo
           sudo chgrp admin /Applications/ 
           sudo chmod g+wrx /Applications/
 
+**Note**: Ironfan is [not compatible with Ruby 1.8](https://github.com/infochimps-labs/ironfan/issues/127). All versions later than 1.9.2-p136 should work fine.
+
 
 ## Before getting started
 
