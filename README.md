@@ -44,7 +44,6 @@ Yeah so there is some permissions issues since you don't want to run this as roo
 * pick up down below.
 
 
-
 ## Getting Started
 
 We'll use the following conventions:
