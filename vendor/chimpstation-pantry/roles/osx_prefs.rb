@@ -1,15 +1,11 @@
 name        "osx_prefs"
 description "Chimpstation: Mac OSX-specific dotfiles / system preferences / etc."
 
-run_list(*%w[
-  chimpstation_prefs::app_prefs
-  chimpstation_prefs::screensaver_prefs
-  chimpstation_prefs::service_prefs
-  chimpstation_prefs::user_interface_prefs
-
-  chimpstation_prefs::mute_rubygems_deprecations
-  ])
-#  chimpstation_prefs::rename_machine
-
-default_attributes({
-  })
+run_list(
+  # 'osx_prefs::consistent_app_prefs',
+  'osx_prefs::consistent_terminal_keybindings',
+  'osx_prefs::consistent_user_interface',
+  # 'osx_prefs::enable_file_locate',
+  # 'osx_prefs::enable_ssh',
+  'osx_prefs::screensaver_requires_password',
+  )

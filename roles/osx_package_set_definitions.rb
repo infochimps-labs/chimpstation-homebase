@@ -1,0 +1,1 @@
+../vendor/chimpstation-pantry/roles/osx_package_set_definitions.rb

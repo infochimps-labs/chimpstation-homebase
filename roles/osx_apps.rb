@@ -1,1 +1,0 @@
-../vendor/chimpstation-pantry/roles/osx_apps.rb
