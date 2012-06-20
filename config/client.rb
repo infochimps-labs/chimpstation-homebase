@@ -2,10 +2,18 @@
 # Please edit the following
 #
 
-organization            YOUR_ORGANIZATION_HERE
-cluster                 "workstation"
-facet                   YOUR_NAME_HERE
-facet_index             FACET_INDEX_HERE
+organization            "chimpstation"
+cluster                 "fleep"         # your cluster
+facet                   "worblehat"     # name of this box
+facet_index             "0"             # leave at zero, probably
+
+# Use this if chef server is running from localhost
+chef_server_url         "http://localhost:4000"
+validation_client_name  "chef-validator"
+
+# # Use this if chef server is running from opscode platform
+# chef_server_url         "https://api.opscode.com/organizations/#{organization}"
+# validation_client_name  "#{organization}-validator"
 
 #
 # You shouldn't need to touch the below

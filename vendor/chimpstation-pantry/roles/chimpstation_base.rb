@@ -1,8 +1,8 @@
 name        "chimpstation_base"
-description "Chimpstation: role applied to all workstations."
+description "Chimpstation: OS-agnostic foundation. Role is applied to all workstations."
 
-run_list(*%w[
-  ])
+run_list(
+  )
 
 default_attributes({
   })

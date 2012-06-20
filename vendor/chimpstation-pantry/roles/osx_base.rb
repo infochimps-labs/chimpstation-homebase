@@ -1,14 +1,13 @@
 name        "osx_base"
-description "Chimpstation: role applied to all Mac OS X systems."
+description "Chimpstation OSX: apps and packages applied to all Mac OS X systems."
 
-run_list(*%w[
+run_list(
+  'role[osx_package_set_definitions]',
+  'emacs',
+  'osx_apps::macvim',
+  )
 
-  role[osx_package_set_definitions]
-  emacs
-  osx_apps::macvim
-
-  ])
 
 default_attributes({
-    :package_set => { :install => %w[ osx_base osx_libs osx_cloud ], }
+    # :package_set => { :install => %w[ osx_base osx_libs osx_cloud ], }
   })

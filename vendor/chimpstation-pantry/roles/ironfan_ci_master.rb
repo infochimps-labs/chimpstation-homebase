@@ -2,7 +2,7 @@ name        "ironfan_ci_master"
 description "Chimpstation: sets up a local Ironfan-CI master"
 
 run_list(
-  "role[jenkins_master]"
+  # 'role[jenkins_master]'
   )
 
 default_attributes({
@@ -17,5 +17,5 @@ default_attributes({
         # :home_dir  => "/data/jenkins/jenkins-node",
       },
     },
-    :ruby => { :version => '1.9.1' }, # yes 1.9.1 means 1.9.2
+    :ruby => { :version => '1.9.1' }, # NOTE: 1.9.1 means 1.9.2. Yes, that is stupid.
   })

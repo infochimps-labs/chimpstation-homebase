@@ -1,5 +1,5 @@
 name        "osx_package_set_definitions"
-description "Defines package sets for OSX -- does not install anything"
+description "Chimpstation OSX: define package sets for OSX -- does not install anything"
 
 run_list(*%w[
   recipe[package_set]

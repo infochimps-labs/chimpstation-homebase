@@ -30,16 +30,18 @@ group :development do
   gem 'yard',          "~> 0.6"
   gem 'jeweler'
 
-  gem 'ruby_gntp'
+  # gem 'ruby_gntp'
   if RUBY_PLATFORM.include?('darwin')
-    gem 'growl',      "~> 1"
+    # gem 'growl',      "~> 1"
     gem 'rb-fsevent', "~> 0.9"
   end
 
   gem 'guard',         "~> 1"
-  gem 'guard-process', "~> 1"
   gem 'guard-chef',    :git => 'git@github.com:infochimps-forks/guard-chef.git'
-  gem 'guard-cucumber'
+  # gem 'guard-chef',    :path => '../guard-chef'
+
+  # gem 'guard-process', "~> 1"
+  # gem 'guard-cucumber'
 end
 
 group :support do

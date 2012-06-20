@@ -1,8 +1,5 @@
 name        "osx_data_miner"
 description "Chimpstation OSX: apps and packages for data munging"
 
-run_list(*%w[
-  ])
-
-default_attributes({
-  })
+run_list(
+  )
