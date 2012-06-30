@@ -71,26 +71,26 @@ Make your own chimpstation repo by forking the [chimpstation-homebase](http://gi
 
 Initialize all the git submodules and set up a symlink:
 
-    ```bash
+```bash
     cd ${CSTN_DIR}
     git submodule update --init
     git submodule foreach git checkout master
     git submodule foreach git pull
     ln -sn ./knife .chef
-    ```
+```
 
 At this point running `knife` should display all possible knife commands. `knife cluster list`, however, will fail, because knife isn't yet authorized to talk to the chef server.
 
 Make a home for your credentials. Note that the credentials directory will *not* be added to the chimpstation-homebase.
 
-    ```bash
+```bash
     cd ${CSTN_DIR}
     cp -rp knife/example-credentials knife/${CSTN_ORG}-credentials
     ln -s ${CSTN_ORG}-credentials knife/credentials
     mv knife/credentials/knife-user-example.rb knife/credentials/knife-user-${CHEF_USER}.rb
     ln -s ./knife .chef
     git add . ; git commit -m "set up credentials pointers"
-    ```
+```
 
 ### Chef organization
 
@@ -104,20 +104,20 @@ Create a chef organization:
 
 Seed the chef server:
 
-    ```bash
+```bash
     cd ${CSTN_DIR}
     knife cookbook upload --all
     knife role from file roles/*.rb
     knife environment from file environment/ws.rb
-    ```
+```
 
 Check that they all uploaded:
 
-    ```bash
+```bash
     knife cookbook list
     knife role list
     knife environment list
-    ```
+```
 
 ### Configuring Your Personal Cluster
 
