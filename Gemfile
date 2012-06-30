@@ -4,10 +4,10 @@ source "http://rubygems.org"
 # Chef
 #
 
-gem 'chef',            "= 0.10.10"
-gem 'ironfan',         "~> 3.1.5"
+gem 'chef',            "= 10.12.0"
+gem 'ironfan',         "~> 3.1.6"
 gem 'vagrant',         "~> 1.0"
-gem 'veewee',          "~> 0.2"
+gem 'veewee',          ">= 0.2"
 gem 'fog',             "~> 1.2"
 
 #
