@@ -4,7 +4,8 @@
 # homebase     - default location for clusters, cookbooks and so forth
 #
 username            ENV['CHEF_USER'] || ENV['USER']
-homebase            ENV['CHEF_HOMEBASE'] ? File.expand_path(ENV['CHEF_HOMEBASE']) : File.expand_path("..", File.realdirpath(File.dirname(__FILE__)))
+homebase            ENV['CSTN_HOMEBASE'] ? File.expand_path(ENV['CSTN_HOMEBASE']) : File.expand_path("..", File.realdirpath(File.dirname(__FILE__)))
+organization        ENV['CSTN_ORG']
 
 #
 # Additional settings and overrides
@@ -21,7 +22,7 @@ role_path           [ "#{homebase}/roles"     ]
 # Keys and cloud-specific settings.
 # Be sure all your .pem files are non-readable (mode 0600)
 #
-credentials_path    File.expand_path("credentials", File.realdirpath(File.dirname(__FILE__)))
+credentials_path    File.expand_path("#{organization}-credentials", File.realdirpath(File.dirname(__FILE__)))
 client_key_dir      "#{credentials_path}/client_keys"
 ec2_key_dir         "#{credentials_path}/ec2_keys"
 
