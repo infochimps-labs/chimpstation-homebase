@@ -270,7 +270,7 @@ now uninstall:
     brew unlink         rabbitmq couchdb
     brew remove --force rabbitmq couchdb
     (cd /usr/local ; for dir in {etc,etc/logrotate.d,var/*,var}/{couchdb,rabbitmq,chef}* ; do mv $dir /tmp/chef-away/$dir ; done )
-    mv /Applications/VirtualBox.app /tmp/chef-away/Applications
+    #mv /Applications/VirtualBox.app /tmp/chef-away/Applications
 
 nothing should be running, and only items in Library should match:
 
