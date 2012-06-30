@@ -27,8 +27,8 @@ default[:chimpstation_pkg][:libreoffice][:checksum]       = "6a6abd0287606fcfedb
 default[:chimpstation_pkg][:skype][:release_url]          = "http://download.skype.com/macosx/Skype_5.3.0.1093.dmg"
 default[:chimpstation_pkg][:skype][:checksum]             = "ad4f5a8f2312597b98c420045d0828ec40d440fe0da187bde34b7f40294b8e08"
 
-default[:chimpstation_pkg][:virtualbox][:release_url]     = "http://download.virtualbox.org/virtualbox/4.1.2/VirtualBox-4.1.2-73507-OSX.dmg"
-default[:chimpstation_pkg][:virtualbox][:checksum]        = "6fd7b3ed2596cd76004e6d1a8d5ddbfb4193d6508132bfa447304c9cff5703d7"
+default[:chimpstation_pkg][:virtualbox][:release_url]     = "http://download.virtualbox.org/virtualbox/4.1.18/VirtualBox-4.1.18-78361-OSX.dmg"
+default[:chimpstation_pkg][:virtualbox][:checksum]        = "b17465ee88135f9dbb3f4e6eba1bee408f72f2dafebd872c51344cbb474bffde"
 
 default[:chimpstation_pkg][:chrome][:release_url]         = "https://dl-ssl.google.com/chrome/mac/stable/GGRM/googlechrome.dmg"
 default[:chimpstation_pkg][:chrome][:checksum]            = "bd85e06643abc3af5b1a049d8031c29f339f456c2d25852a7a4a1e6578b49792"
