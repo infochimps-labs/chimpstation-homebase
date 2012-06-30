@@ -66,3 +66,4 @@ knife/plugins
 
 .chef
 vendor/ironfan-enterprise
+Gemfile.lock
