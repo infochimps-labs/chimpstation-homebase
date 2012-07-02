@@ -29,7 +29,7 @@ Ironfan.cluster 'ducats' do
     server(0).name   'dunit'
      facet_role.override_attributes({
       :chef_server => {
-        :user => 'dieterichlawson',
+        :user => 'dlaw',
         :group => 'staff',
         :manage_user_action => 'nothing',
         :webui_enabled => true,
