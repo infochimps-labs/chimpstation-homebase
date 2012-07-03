@@ -25,7 +25,7 @@ Ironfan.cluster '${chef_cluster}' do
     server(0).name   '${chef_facet}'
      facet_role.override_attributes({
       :chef_server => {
-        :user => '$USER',
+        :user => '${chef_server_user}',
         :group => 'staff',
         :manage_user_action => 'nothing',
         :webui_enabled => true,
