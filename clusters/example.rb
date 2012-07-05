@@ -1,6 +1,6 @@
 #
 # An example cluster file template. CANNOT be used as-is.
-# Copy to config/ducats.rb and modify to suit your needs.
+# Copy to config/${chef_cluster}.rb and modify to suit your needs.
 #
 # We recommend having one cluster that logically groups all your machines.
 # If you have more than one machine, then the simplest route is to put
@@ -31,8 +31,7 @@ Ironfan.cluster '${chef_cluster}' do
     server(0).name   '${chef_facet}'
      facet_role.override_attributes({
       :chef_server => {
-       #set this to YOUR username on your local machine
-        :user => '${local_user}',
+        :user => '${chef_server_user}',
         :group => 'staff',
         :manage_user_action => 'nothing',
         :webui_enabled => true,
