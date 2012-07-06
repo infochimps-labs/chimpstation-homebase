@@ -26,7 +26,6 @@ Ironfan.cluster 'ducats' do
   })
 
   facet :dunit do
-    server(0).name   'dunit'
      facet_role.override_attributes({
       :chef_server => {
         :user => 'dlaw',
@@ -38,7 +37,6 @@ Ironfan.cluster 'ducats' do
   end
 
   facet :coolhand do
-    server(0).name   'coolhand'
     facet_role.override_attributes({
       :chef_server => {
         :user => 'dlaw',
