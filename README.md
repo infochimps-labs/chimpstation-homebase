@@ -1,6 +1,6 @@
-# Chimpstation-homebase: infochimps developers' desktop environment
+# Chimpstation-Homebase: Infochimps developers' desktop environment
 
-This repo uses chef and ironfan to provision a developer workstation on OSX. It unifies:
+This repo uses Chef and Ironfan to provision a developer workstation on OSX. It unifies:
 
 * Cookbooks, roles, and environments
 * Cluster descriptions
