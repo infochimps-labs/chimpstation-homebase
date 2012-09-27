@@ -33,7 +33,7 @@ Install homebrew (and take ownership of `/usr/local`) if it's not already instal
 
 ```bash
     sudo chown -R $USER /usr/local
-    /usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"
+    ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
 ```
 
 Run `brew doctor` and follow its instructions to make homebrew happy:
